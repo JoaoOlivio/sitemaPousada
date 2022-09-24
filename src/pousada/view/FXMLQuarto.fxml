@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="971.0" styleClass="fundoPrincipal" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pousada.controller.FXMLQuartoController">
+   <children>
+      <TableView fx:id="tableView" layoutX="27.0" layoutY="331.0" prefHeight="445.0" prefWidth="920.0">
+        <columns>
+          <TableColumn fx:id="tableColumnNumero" prefWidth="246.0" text="Numero" />
+          <TableColumn fx:id="tableColumnTipoQuarto" prefWidth="338.0" text="Tipo Quarto" />
+            <TableColumn fx:id="tableColumnPreco" prefWidth="338.0" text="Preço" />
+        </columns>
+      </TableView>
+      <Label layoutX="80.0" layoutY="93.0" prefHeight="25.0" prefWidth="151.0" text="Número do Quarto:">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="80.0" layoutY="127.0" prefHeight="25.0" prefWidth="151.0" text="Preço: R$">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="373.0" layoutY="93.0" prefHeight="25.0" prefWidth="182.0" text="Quantidade de Pessoa:">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="373.0" layoutY="127.0" prefHeight="25.0" prefWidth="151.0" text="Tipo do Quarto:">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="80.0" layoutY="161.0" prefHeight="25.0" prefWidth="151.0" text="Descrição:">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelQuartoNumero" layoutX="231.0" layoutY="93.0" prefHeight="25.0" prefWidth="109.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelQuartoPreco" layoutX="156.0" layoutY="126.0" prefHeight="25.0" prefWidth="109.0" text=" ">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelQuartoQtdPessoa" layoutX="555.0" layoutY="93.0" prefHeight="25.0" prefWidth="109.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelQuartoTipoQuarto" layoutX="501.0" layoutY="127.0" prefHeight="25.0" prefWidth="109.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelQuartoDescricao" layoutX="80.0" layoutY="186.0" prefHeight="93.0" prefWidth="593.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="buttonInserir" layoutX="777.0" layoutY="96.0" onAction="#handleButtonInserir" prefHeight="42.0" prefWidth="151.0" text="Inserir">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="buttonAlterar" layoutX="777.0" layoutY="151.0" onAction="#handleButtonAlterar" prefHeight="42.0" prefWidth="151.0" text="Alterar">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="buttonExcluir" layoutX="777.0" layoutY="206.0" onAction="#handleButtonRemover" prefHeight="42.0" prefWidth="151.0" text="Excluir">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

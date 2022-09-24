@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="901.0" styleClass="fundoPrincipal" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pousada.controller.FXMLRelatorioController">
+   <children>
+      <JFXComboBox fx:id="comboBoxMes" layoutX="176.0" layoutY="321.0" prefHeight="38.0" prefWidth="246.0" promptText="Mês" />
+      <JFXButton fx:id="buttonImprimir" layoutX="380.0" layoutY="453.0" onAction="#handleImprimir" prefHeight="57.0" prefWidth="142.0" stylesheets="@../css/style.css" text="Imprimir" />
+      <JFXComboBox fx:id="comboBoxAno" layoutX="485.0" layoutY="321.0" prefHeight="38.0" prefWidth="240.0" promptText="Ano" />
+      <Text layoutX="168.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione o mês e o ano para assim poder gerar o relatório." textAlignment="CENTER" wrappingWidth="578.08251953125">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="176.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Relatório " textAlignment="CENTER" wrappingWidth="578.08251953125">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

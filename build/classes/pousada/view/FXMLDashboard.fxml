@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="971.0" styleClass="fundoPrincipal" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pousada.controller.FXMLDashboardController">
+   <children>
+      <Label fx:id="labelTotalReserva" layoutX="61.0" layoutY="55.0" prefHeight="150.0" prefWidth="260.0" styleClass="cards-dashboard" stylesheets="@../css/style.css" text="Total de Reserva" />
+      <Label fx:id="labelQtdQuartos" layoutX="362.0" layoutY="55.0" prefHeight="150.0" prefWidth="260.0" styleClass="cards-dashboard" stylesheets="@../css/style.css" text="Quantidade de Quartos" />
+      <Label fx:id="labelClientesCadastrados" layoutX="658.0" layoutY="55.0" prefHeight="150.0" prefWidth="260.0" styleClass="cards-dashboard" stylesheets="@../css/style.css" text="ClientesCadastrados" />
+      <BarChart fx:id="barChartReserva" layoutX="245.0" layoutY="291.0" prefHeight="460.0" prefWidth="494.0" title="Reservas Por Mês">
+        <xAxis>
+          <CategoryAxis fx:id="categoryAxisMeses" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="numberAxisReservas" side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Text layoutX="112.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total de Reserva" wrappingWidth="170.6708984375">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="381.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade de Quartos" wrappingWidth="241.6708984375">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="690.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clientes Cadastrados" wrappingWidth="195.6708984375">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

@@ -1,0 +1,81 @@
+CREATE TABLE tipoQuarto(
+   idTipoQuarto serial  NOT NULL,
+   nome  varchar(30)  	NOT NULL,
+   CONSTRAINT pk_tipoQuarto
+      PRIMARY KEY(idTipoQuarto)
+);
+
+CREATE TABLE quarto(
+   idQuarto serial      	NOT NULL,
+   numeroQuarto int 		UNIQUE,
+   preco float     			NOT NULL,
+   quantidadePessoa int     NOT NULL,
+   descricao varchar(80)    NOT NULL,
+   idTipoQuarto int     	NOT NULL,
+   CONSTRAINT pk_quarto
+      PRIMARY KEY(idQuarto),
+   CONSTRAINT fk_quarto_tipoQuarto
+      FOREIGN KEY(idTipoQuarto)
+      REFERENCES tipoQuarto(idTipoQuarto)
+);
+
+CREATE TABLE clientes(
+   idCliente serial      		NOT NULL,
+   nome varchar(50) 			NOT NULL,
+   cpf varchar(12) 				NOT NULL,
+   telefone varchar(50) 		NOT NULL,
+   quantidadeDeHospedagem int 	NOT NULL,
+   CONSTRAINT pk_clientes
+      PRIMARY KEY(idCliente)
+);
+
+
+CREATE TABLE reserva(
+   idReserva serial 		NOT NULL,
+   quantidadeHospede int 	NOT NULL,
+   dataInicio date 			NOT NULL,
+   dataFinal date 			NOT NULL,
+   valor float,
+   idQuarto int				NOT NULL,
+   idCliente int 			NOT NULL,
+   CONSTRAINT pk_reserva
+      PRIMARY KEY(idReserva),
+   CONSTRAINT fk_reserva_quarto
+      FOREIGN KEY(idQuarto)
+      REFERENCES quarto(idQuarto),
+   CONSTRAINT fk_reserva_clientes
+      FOREIGN KEY(idCliente)
+      REFERENCES clientes(idCliente)
+);
+
+
+INSERT INTO clientes(nome, cpf, telefone, quantidadeDeHospedagem) VALUES('Rafael','11111111111','(11) 1111-1111',2);
+INSERT INTO clientes(nome, cpf, telefone, quantidadeDeHospedagem) VALUES('João'  ,'22222222222','(22) 2222-2222',2);
+INSERT INTO clientes(nome, cpf, telefone, quantidadeDeHospedagem) VALUES('Maria' ,'33333333333','(33) 3333-3333',1);
+INSERT INTO clientes(nome, cpf, telefone, quantidadeDeHospedagem) VALUES('Jonas','44444444444','(44) 4444-4444',1);
+INSERT INTO clientes(nome, cpf, telefone, quantidadeDeHospedagem) VALUES('Fernanda'  ,'55555555555','(55) 5555-5555',2);
+INSERT INTO clientes(nome, cpf, telefone, quantidadeDeHospedagem) VALUES('Lucas' ,'77777777777','(33) 7777-7777',1);
+
+INSERT INTO tipoQuarto(nome) VALUES('Solteiro');
+INSERT INTO tipoQuarto(nome) VALUES('Casal');
+INSERT INTO tipoQuarto(nome) VALUES('Familia');
+INSERT INTO tipoQuarto(nome) VALUES('Amigos');
+
+INSERT INTO quarto(numeroQuarto, preco, quantidadePessoa, descricao, idTipoQuarto ) VALUES(1,80,1, 'Quarto com uma cama de Solteiro', 1);
+INSERT INTO quarto(numeroQuarto, preco, quantidadePessoa, descricao, idTipoQuarto ) VALUES(2,120,2, 'Quarto com uma cama de Casal', 2);
+INSERT INTO quarto(numeroQuarto, preco, quantidadePessoa, descricao, idTipoQuarto ) VALUES(3,150,3, 'Quarto com uma cama de Casal e Solteiro', 3);
+INSERT INTO quarto(numeroQuarto, preco, quantidadePessoa, descricao, idTipoQuarto ) VALUES(4,200,5, 'Quarto com 5 cama de Solteiro', 4);
+INSERT INTO quarto(numeroQuarto, preco, quantidadePessoa, descricao, idTipoQuarto ) VALUES(5,150,2, 'Quarto com uma cama de Casal', 2);
+INSERT INTO quarto(numeroQuarto, preco, quantidadePessoa, descricao, idTipoQuarto ) VALUES(6,80,1, 'Quarto com uma cama de Solteiro', 1);
+
+
+INSERT INTO reserva(quantidadeHospede, dataInicio, dataFinal, valor,idQuarto,idCliente) VALUES(1, '2022-06-01','2022-06-06',480,1,1 );
+INSERT INTO reserva(quantidadeHospede, dataInicio, dataFinal, valor,idQuarto,idCliente) VALUES(1, '2021-06-01','2021-06-06',480,1,1 );
+INSERT INTO reserva(quantidadeHospede, dataInicio, dataFinal, valor,idQuarto,idCliente) VALUES(1, '2021-05-01','2021-05-06',480,1,2 );
+INSERT INTO reserva(quantidadeHospede, dataInicio, dataFinal, valor,idQuarto,idCliente) VALUES(1, '2021-04-01','2021-04-06',480,1,2 );
+INSERT INTO reserva(quantidadeHospede, dataInicio, dataFinal, valor,idQuarto,idCliente) VALUES(2, '2022-06-01','2022-06-03',450,3,6 );
+INSERT INTO reserva(quantidadeHospede, dataInicio, dataFinal, valor,idQuarto,idCliente) VALUES(2, '2022-04-01','2022-04-03',600,4,4 );
+INSERT INTO reserva(quantidadeHospede, dataInicio, dataFinal, valor,idQuarto,idCliente) VALUES(2, '2021-06-01','2021-06-03',600,4,5 );
+INSERT INTO reserva(quantidadeHospede, dataInicio, dataFinal, valor,idQuarto,idCliente) VALUES(2, '2022-06-01','2022-06-03',360,2,3 );
+INSERT INTO reserva(quantidadeHospede, dataInicio, dataFinal, valor,idQuarto,idCliente) VALUES(2, '2022-07-01','2022-07-03',360,2,5 );
+

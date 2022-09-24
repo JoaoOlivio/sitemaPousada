@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pousada.controller.FXMLDocumentController">
+   <children>
+      <VBox prefHeight="835.0" prefWidth="330.0" style="-fx-background-color: #ffab4e;" stylesheets="@../css/style.css">
+         <children>
+            <AnchorPane prefHeight="189.0" prefWidth="330.0">
+               <children>
+                  <ImageView fitHeight="189.0" fitWidth="330.0" layoutX="71.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/dunamisBeach.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <Button fx:id="buttonDashboard" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleMenuDashboard" prefHeight="81.0" prefWidth="330.0" stylesheets="@css/style.css" text="Dashboard" textFill="#001e51">
+               <graphic>
+                  <FontAwesomeIconView fill="#001e51" glyphName="bars" size="18" text="" />
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonQuarto" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleMenuQuarto" prefHeight="81.0" prefWidth="330.0" stylesheets="@css/style.css" text="Quarto" textFill="#001e51">
+               <graphic>
+                  <FontAwesomeIconView fill="#001e51" glyphName="BED" size="18" />
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonReserva" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleMenuReserva" prefHeight="81.0" prefWidth="330.0" stylesheets="@css/style.css" text="Reservas" textFill="#001e51">
+               <graphic>
+                  <FontAwesomeIconView fill="#001e51" glyphName="FILE" size="18" />
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonRelatorios" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleMenuRelatorios" prefHeight="81.0" prefWidth="330.0" stylesheets="@css/style.css" text="Relatórios" textFill="#001e51">
+               <graphic>
+                  <FontAwesomeIconView fill="#001e51" glyphName="LIST" size="18" />
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonThread" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleMenuThread" prefHeight="81.0" prefWidth="330.0" stylesheets="@css/style.css" text="Thread e Sockets" textFill="#001e51">
+               <graphic>
+                  <FontAwesomeIconView fill="#001e51" glyphName="LIST" size="18" text="" />
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="anchorPanePrincipal" layoutX="329.0" layoutY="-2.0" prefHeight="800.0" prefWidth="971.0" styleClass="fundoPrincipal" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="329.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>

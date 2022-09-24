@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FXMVRelatorioTipoQuarto" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="08c355d0-89c1-4f73-8373-fb6528d3c32d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="pousada"/>
+	<parameter name="mes" class="java.lang.Integer"/>
+	<parameter name="ano" class="java.lang.Integer"/>
+	<parameter name="nomeMes" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT tipoQuarto.nome, count(reserva), SUM(reserva.quantidadeHospede) FROM reserva, quarto, tipoQuarto 
+WHERE reserva.idQuarto = quarto.idQuarto AND
+quarto.idTipoQuarto  = tipoQuarto.idTipoQuarto
+GROUP BY tipoQuarto.nome, EXTRACT(month from reserva.dataInicio), EXTRACT(year from reserva.dataInicio) 
+HAVING EXTRACT(month from reserva.dataInicio) = $P!{mes} AND EXTRACT(year from reserva.dataInicio) = $P!{ano}]]>
+	</queryString>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tipoquarto"/>
+	</field>
+	<field name="count" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="count"/>
+	</field>
+	<field name="sum" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="sum"/>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#FFAB4E" uuid="1ede2312-af6d-4427-9193-db8f99d2990a"/>
+				<staticText>
+					<reportElement x="20" y="20" width="120" height="43" forecolor="#FFFFFF" uuid="e8e95e26-bed6-4434-b878-a5adfb1529ee"/>
+					<textElement>
+						<font size="20" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Relatório de]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="140" y="20" width="170" height="36" forecolor="#FFFFFF" uuid="8d3959f0-1429-41dd-b372-b1d58ab77f3f">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="180167ba-c216-4c7d-8be9-3583ef48a28f"/>
+					</reportElement>
+					<textElement textAlignment="Left">
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{nomeMes}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="de170d22-afa4-4589-be4e-22969b747005"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="185" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="5674a8c1-a3aa-4f81-9a6e-28925b238cc9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4afc253d-36fe-4b95-911f-97913f864ca4"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Quarto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="185" y="0" width="185" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="7344a63f-6745-4733-a40d-16306fb9f2e6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="180167ba-c216-4c7d-8be9-3583ef48a28f"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reservas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="370" y="0" width="185" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="686966a1-7c00-49fb-be0c-6698e4a30631">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="afa20162-1b67-4173-ac2b-9159c1e95240"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total de Hospedes]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="cf56df92-f78b-4e9e-ade8-c1fa39ae8f52"/>
+			</line>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="0" y="0" width="185" height="20" uuid="a1171909-7d20-4df9-862a-4debe11f4c2f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4afc253d-36fe-4b95-911f-97913f864ca4"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="185" y="0" width="185" height="20" uuid="f56095da-5f44-46c9-86ca-bd975b510771">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="180167ba-c216-4c7d-8be9-3583ef48a28f"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{count}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="370" y="0" width="185" height="20" uuid="3caea1ea-6b0b-496e-b8f6-d0d9bc657cd8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="afa20162-1b67-4173-ac2b-9159c1e95240"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sum}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="e3e33e2f-9b96-43f8-899c-87fec07a66d6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="3ddec387-0046-4698-a8eb-824974869119"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="5d3ba24a-6b77-4c07-82ff-e6bc9e2df743"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

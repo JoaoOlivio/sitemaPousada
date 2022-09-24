@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="866.0" styleClass="fundoPrincipal" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pousada.controller.FXMLReservaDialogController">
+   <children>
+      <JFXComboBox fx:id="comboBoxCliente" focusColor="#ffab4e" labelFloat="true" layoutX="48.0" layoutY="107.0" prefHeight="34.0" prefWidth="237.0" promptText="Cliente" visibleRowCount="12" />
+      <JFXDatePicker fx:id="dataInicio" defaultColor="#ffab4e" layoutX="48.0" layoutY="168.0" prefHeight="34.0" prefWidth="237.0" promptText="Data Inicio" />
+      <JFXDatePicker fx:id="dataFinal" defaultColor="#ffab4e" layoutX="48.0" layoutY="218.0" prefHeight="34.0" prefWidth="237.0" promptText="Data Final" />
+      <JFXComboBox fx:id="comboBoxQuarto" focusColor="#ffab4e" labelFloat="true" layoutX="328.0" layoutY="166.0" prefHeight="34.0" prefWidth="237.0" promptText="Quarto" visibleRowCount="12" />
+      <JFXComboBox fx:id="comboBoxTipoQuarto" focusColor="#ffab4e" labelFloat="true" layoutX="328.0" layoutY="108.0" onAction="#carregarComboBoxQuarto" prefHeight="34.0" prefWidth="237.0" promptText="Tipo do Quarto" visibleRowCount="12" />
+      <JFXTextField fx:id="labelQtdPessoa" focusColor="#ffab4e" labelFloat="true" layoutX="328.0" layoutY="228.0" prefHeight="25.0" prefWidth="237.0" promptText="Quantidade de Pessoas" />
+      <JFXTextField fx:id="labelPrecoFinal" disable="true" labelFloat="true" layoutX="48.0" layoutY="323.0" prefHeight="34.0" prefWidth="237.0" promptText="Preço Final" />
+      <JFXButton fx:id="buttonConfirmar" layoutX="471.0" layoutY="319.0" onAction="#handleButtonConfirmar" prefHeight="42.0" prefWidth="151.0" text="Confirmar">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="buttonCancelar" layoutX="671.0" layoutY="319.0" onAction="#handleButtonCancelar" prefHeight="42.0" prefWidth="151.0" text="Cancelar">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="tableViewQuartos" layoutX="622.0" layoutY="100.0" prefHeight="172.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="tableColumnNumero" prefWidth="73.0" text="Número" />
+          <TableColumn fx:id="tableColumnPreco" prefWidth="126.0" text="Preço" />
+        </columns>
+      </TableView>
+      <Label layoutX="647.0" layoutY="74.0" prefHeight="21.0" prefWidth="151.0" text="Dados dos Quartos">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
